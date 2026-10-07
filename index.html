@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smileat · Reporte septiembre 2026 · Promociones</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="gate">
+  <div class="gate-top"><div class="lg"><img src="assets/logo-claim-blanco.png" alt="Smileat · Tan real como tu peque"></div><span>Reporte septiembre 2026 · Promociones</span></div>
+
+  <a class="door es" href="espana.html">
+    <i class="blob b1"></i><i class="blob b2"></i>
+    <div class="pics"><img src="assets/es/img2.jpg" alt=""><img src="assets/es/img3.jpg" alt=""></div>
+    <span class="flagl">ESPAÑA</span>
+    <h2>Mes de la <em>Suscripción</em></h2>
+    <p class="d">-25% en los tres primeros packs personalizados, -15% en el resto y envío gratis para siempre.</p>
+    <div class="mini" id="mini-es"></div>
+    <span class="go">Ver resultados de España →</span>
+  </a>
+
+  <a class="door pt" href="portugal.html">
+    <i class="blob b1"></i><i class="blob b2"></i>
+    <div class="pics"><img src="assets/pt/img1.jpg" alt=""><img src="assets/pt/img2.jpg" alt=""></div>
+    <span class="flagl">PORTUGAL</span>
+    <h2>Envío gratis <em>desde 20€</em></h2>
+    <p class="d">Promoción de envío gratis en pedidos a partir de 20€, comunicada con tres creatividades en Meta Ads.</p>
+    <div class="mini" id="mini-pt"></div>
+    <span class="go">Ver resultados de Portugal →</span>
+  </a>
+</main>
+<script src="data.js"></script><script src="common.js"></script>
+<script>
+const T=DATA.totals,G=DATA.google.groups.reduce((a,g)=>({cost:a.cost+g.cost,val:a.val+g.val,conv:a.conv+g.conv}),{cost:0,val:0,conv:0}),sp=T.spend_meta_es+G.cost,vl=T.val_meta_es+G.val;
+const m=(a)=>a.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');
+$('mini-es').innerHTML=m([[eur(sp),'inversión'],[x(vl/sp),'ROAS'],[num(T.res_meta_es+Math.round(G.conv)),'compras']]);
+$('mini-pt').innerHTML=m([[eur(T.spend_pt),'inversión'],[num(T.res_pt),'compras'],[eur(T.spend_pt/T.res_pt,2),'coste/compra']]);
+</script>
+</body>
+</html>
