@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smileat · Reporte septiembre 2026</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="gate">
+  <div class="gate-top"><div class="lg"><img src="assets/logo-claim-blanco.png" alt="Smileat · Tan real como tu peque"></div></div>
+  <h1 class="gate-mid">Septiembre</h1>
+
+  <a class="door es" href="espana.html">
+    <i class="blob b1"></i><i class="blob b2"></i>
+    <div class="pics"><img src="assets/es/promo_img2.jpg" alt=""><img src="assets/es/kids1.jpg" alt=""></div>
+    <h2>España</h2>
+    <p class="d">Resultados de todo el mes: Promo Suscripción, Vuelta al cole, Smileat Kids, Smilotes, Meta Ads y Google Ads.</p>
+    <div class="mini" id="mini-es"></div>
+    <span class="go">Ver resultados de España →</span>
+  </a>
+
+  <a class="door pt" href="portugal.html">
+    <i class="blob b1"></i><i class="blob b2"></i>
+    <div class="pics"><img src="assets/pt/envio_img1.jpg" alt=""><img src="assets/pt/smilotes2.jpg" alt=""></div>
+    <h2>Portugal</h2>
+    <p class="d">Resultados de todo el mes: envío gratis desde 20€, catálogo dinámico, Smilotes y Smileat Kids, Meta Ads y Google Ads.</p>
+    <div class="mini" id="mini-pt"></div>
+    <span class="go">Ver resultados de Portugal →</span>
+  </a>
+</main>
+<script src="data.js"></script><script src="common.js"></script>
+<script>
+const E=DATA.meta_es.tot,P=DATA.meta_pt,C=P.fams.find(f=>f.n=='Recetas y consejos');
+const m=(a)=>a.map(([v,l])=>`<div><b>${v}</b><span>${l}</span></div>`).join('');
+$('mini-es').innerHTML=m([[eur(E.spend),'inversión Meta'],[x(E.val/E.spend),'ROAS Meta'],[num(E.purch),'compras']]);
+$('mini-pt').innerHTML=m([[eur(P.tot.spend),'inversión Meta'],[num(P.tot.purch),'compras'],[eur((P.tot.spend-C.spend)/P.tot.purch,2),'coste/compra']]);
+</script>
+</body>
+</html>
